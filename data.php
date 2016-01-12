@@ -56,16 +56,16 @@ echo "</ul>";
 			$address = cleanInput($_POST["address"]);
 		}
 		
-		if ( empty($_POST["phone number"]) ) {
+		if ( empty($_POST["phone_number"]) ) {
 			$phone_number_error = "See väli on kohustuslik";
 		}else{
-			$phone_number = cleanInput($_POST["phone number"]);
+			$phone_number = cleanInput($_POST["phone_number"]);
 		}
 		
-		if ( empty($_POST["register code"]) ) {
+		if ( empty($_POST["register_code"]) ) {
 			$register_code_error = "See väli on kohustuslik";
 		}else{
-			$register_code = cleanInput($_POST["register code"]);
+			$register_code = cleanInput($_POST["register_code"]);
 		}
 		
 		// mõlemad on kohustuslikud
@@ -102,15 +102,15 @@ echo "</ul>";
 </p>
 
 
-<h2>Lisa märkuse</h2>
+<h2>Lisa andmed</h2>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" >
 	<label for="name" >Nimi</label><br>
 	<input id="name" name="name" type="text" value="<?php echo $name; ?>"> <?php echo $name_error; ?><br><br>
 	<label for="address">Aadress</label><br>
 	<input id="address" name="address" type="text" value="<?php echo $address; ?>"> <?php echo $address_error; ?><br><br>
-	<label for="phone number">Tel. number</label><br>
-	<input id="phone number" name="phone number" type="text" value="<?php echo $phone_number; ?>"> <?php echo $phone_number_error; ?><br><br>
-	<label for="register code">Registri kood</label><br>
-	<input id="register code" name="register code" type="text" value="<?php echo $register_code; ?>"> <?php echo $register_code_error; ?><br><br>
+	<label for="phone_number">Tel. number</label><br>
+	<input id="phone_number" name="phone_number" type="text" value="<?php echo $phone_number; ?>"> <?php echo $phone_number_error; ?><br><br>
+	<label for="register_code">Registri kood</label><br>
+	<input id="register_code" name="register_code" type="text" value="<?php echo $register_code; ?>"> <?php echo $register_code_error; ?><br><br>
 	<input type="submit" name="add_data" value="Salvesta">
 </form>

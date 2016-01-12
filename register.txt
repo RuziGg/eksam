@@ -2,8 +2,8 @@ CREATE TABLE register (
   `register_id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `address` VARCHAR(45) NOT NULL,
-  `phone number` INT NOT NULL,
-  `register code` INT NOT NULL,
+  `phone_number` INT NOT NULL,
+  `register_code` INT NOT NULL,
   PRIMARY KEY (`register_id`))
 ENGINE = InnoDB;
 
@@ -15,16 +15,16 @@ created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 UNIQUE(email) );
 
 
-INSERT INTO register (`name`, `address`, `phone number`, `register code`) VALUES ('Omniva', 'Punane 13', '53497782', '00001');
-INSERT INTO register (`name`, `address`, `phone number`, `register code`) VALUES ('Konsum', 'Kooli 2', '53489782', '00002');
-INSERT INTO register (`name`, `address`, `phone number`, `register code`) VALUES ('Nordea', 'Aia 19', '52496183', '00003');
-INSERT INTO register (`name`, `address`, `phone number`, `register code`) VALUES ('LG', 'Narva mnt 14', '56618839', '00004');
-INSERT INTO register (`name`, `address`, `phone number`, `register code`) VALUES ('Milka', 'Sinine 16', '56262428', '00005');
-INSERT INTO register (`name`, `address`, `phone number`, `register code`) VALUES ('Lays', 'Kose mnt 29', '53497328', '00006');
-INSERT INTO register (`name`, `address`, `phone number`, `register code`) VALUES ('Coca-Cola', 'Paldiski mnt 17', '6084965', '00007');
-INSERT INTO register (`name`, `address`, `phone number`, `register code`) VALUES ('Nokia', 'Tondi 1', '6084345', '00008');
-INSERT INTO register (`name`, `address`, `phone number`, `register code`) VALUES ('Google', 'Paberi 11', '6084385', '00009');
-INSERT INTO register (`name`, `address`, `phone number`, `register code`) VALUES ('Asus', 'Kooli 19', '56617819', '00010');
+INSERT INTO register (`name`, `address`, `phone_number`, `register_code`) VALUES ('Omniva', 'Punane 13', '53497782', '00001');
+INSERT INTO register (`name`, `address`, `phone_number`, `register_code`) VALUES ('Konsum', 'Kooli 2', '53489782', '00002');
+INSERT INTO register (`name`, `address`, `phone_number`, `register_code`) VALUES ('Nordea', 'Aia 19', '52496183', '00003');
+INSERT INTO register (`name`, `address`, `phone_number`, `register_code`) VALUES ('LG', 'Narva mnt 14', '56618839', '00004');
+INSERT INTO register (`name`, `address`, `phone_number`, `register_code`) VALUES ('Milka', 'Sinine 16', '56262428', '00005');
+INSERT INTO register (`name`, `address`, `phone_number`, `register_code`) VALUES ('Lays', 'Kose mnt 29', '53497328', '00006');
+INSERT INTO register (`name`, `address`, `phone_number`, `register_code`) VALUES ('Coca-Cola', 'Paldiski mnt 17', '6084965', '00007');
+INSERT INTO register (`name`, `address`, `phone_number`, `register_code`) VALUES ('Nokia', 'Tondi 1', '6084345', '00008');
+INSERT INTO register (`name`, `address`, `phone_number`, `register_code`) VALUES ('Google', 'Paberi 11', '6084385', '00009');
+INSERT INTO register (`name`, `address`, `phone_number`, `register_code`) VALUES ('Asus', 'Kooli 19', '56617819', '00010');
 
 
 INSERT INTO register_user (`email`, `password`) VALUES ('ruslan@jegorov.com', 'ruslanjegorov');

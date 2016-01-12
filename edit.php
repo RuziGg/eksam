@@ -29,7 +29,7 @@
 		//number_plate ja color tulevad vormist
 		//aga id aadresirealt
 		
-		updateData($_POST["register_id"], $_POST["name"], $_POST["address"], $_POST["phone number"], $_POST["register code"]);
+		updateData($_POST["register_id"], $_POST["name"], $_POST["address"], $_POST["phone_number"], $_POST["register_code"]);
 		
 		
 	}
@@ -39,9 +39,13 @@
 <h2>Muuda markuse</h2>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" >
 	<input type="hidden" name="id" value="<?$_GET["edit_id"];?>">
-	<label for="title" >Pealkiri</label><br>
-	<input id="title" name="title" type="text" value="<?=$Note1->title;?>"><br><br>
-	<label for="note">Markus</label><br>
-	<input id="note" name="note" type="text" value="<?=$Note1->note;?>"><br><br>
-	<input type="submit" name="update_note" value="Salvesta">
+	<label for="name" >Nimi</label><br>
+	<input id="name" name="name" type="text" value="<?=$Data1->name;?>"><br><br>
+	<label for="address">Aadress</label><br>
+	<input id="address" name="address" type="text" value="<?=$Data1->address;?>"><br><br>
+	<label for="phone_number">Tel. number</label><br>
+	<input id="phone_number" name="phone_number" type="text" value="<?=$Data1->phone_number;?>"><br><br>
+	<label for="register_code">Registri kood</label><br>
+	<input id="register_code" name="register_code" type="text" value="<?=$Data1->register_code;?>"><br><br>
+	<input type="submit" name="update_data" value="Salvesta">
 </form>

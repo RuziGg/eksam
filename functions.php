@@ -38,7 +38,7 @@
 		
 		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
 		
-		$stmt = $mysqli->prepare("INSERT INTO register (register_id, name, address, 'phone number', 'register code') VALUES (?,?,?,?,?)");
+		$stmt = $mysqli->prepare("INSERT INTO register (register_id, name, address, phone_number, register_code) VALUES (?,?,?,?,?)");
 		$stmt->bind_param("issss", $_SESSION["logged_in_user_id"], $name, $address, $phone_number, $register_code);
 		
 		//sonum
@@ -62,7 +62,7 @@
 		
 	function getData($keyword=""){
 		
-				$search = "%%";
+				$search = "%%%%";
 		
 		//kas otsisona on tuhi
 		if($keyword==""){
@@ -77,12 +77,12 @@
 		}
 		
 		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("SELECT register_id, name, address, 'phone number', 'register code' from register WHERE deleted IS NULL AND (name LIKE ? OR address LIKE ? OR 'phone numer' LIKE ? OR 'register code' LIKE ?) ");
+		$stmt = $mysqli->prepare("SELECT register_id, name, address, phone_number, register_code from register WHERE deleted IS NULL AND (name LIKE ? OR address LIKE ? OR phone_numer LIKE ? OR register_code LIKE ?) ");
 		
 		//echo $stmt->error;
 		echo $mysqli->error;
 		
-		$stmt->bind_param("ss", $search, $search);
+		$stmt->bind_param("ssss", $search, $search, $search, $search);
 		$stmt->bind_result($register_id, $name, $address, $phone_number, $register_code);
 		$stmt->execute();
 		
@@ -146,7 +146,7 @@
 	function updateData($register_id, $name, $address, $phone_number, $register_code){
 	
 		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("UPDATE register SET name=?, address=?, 'phone number'=?, 'register code'=? WHERE register_id=?");
+		$stmt = $mysqli->prepare("UPDATE register SET name=?, address=?, phone_number=?, register_code=? WHERE register_id=?");
 		$stmt->bind_param("ssssi", $name, $address, $phone_number, $register_code, $register_id);
 		if($stmt->execute()){
 			// sai uuendatud

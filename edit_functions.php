@@ -7,7 +7,7 @@
 		
 		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
 		
-		$stmt = $mysqli->prepare("SELECT name, address, 'phone number', 'register code' FROM register WHERE id=? AND deleted IS NULL");
+		$stmt = $mysqli->prepare("SELECT name, address, phone_number, register_code FROM register WHERE id=? AND deleted IS NULL");
 		$stmt->bind_param("i",$edit_id);
 		$stmt->bind_result($name, $address, $phone_number, $register_code);
 		$stmt->execute();
@@ -42,8 +42,8 @@
 		function updateData($register_id, $name, $address, $phone_number, $register_code){
 	
 		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("UPDATE register SET name=?, address=?, 'phone number'=?, 'register code'=? WHERE id=?");
-		$stmt->bind_param("ssssi", $name, $address, $phone_number, $register_code, $id);
+		$stmt = $mysqli->prepare("UPDATE register SET name=?, address=?, phone_number=?, register_code=? WHERE id=?");
+		$stmt->bind_param("ssssi", $name, $address, $phone_number, $register_code, $register_id);
 		if($stmt->execute()){
 			// sai uuendatud
 			// kustutame aadressirea tuhjaks
