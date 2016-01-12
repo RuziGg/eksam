@@ -1,11 +1,18 @@
 CREATE TABLE register (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `register_id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `address` VARCHAR(45) NOT NULL,
   `phone number` INT NOT NULL,
   `register code` INT NOT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`register_id`))
 ENGINE = InnoDB;
+
+CREATE TABLE register_user ( 
+user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+email VARCHAR(255) NOT NULL, 
+password VARCHAR(128), 
+created TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+UNIQUE(email) );
 
 
 INSERT INTO register (`name`, `address`, `phone number`, `register code`) VALUES ('Omniva', 'Punane 13', '53497782', '00001');
@@ -19,20 +26,37 @@ INSERT INTO register (`name`, `address`, `phone number`, `register code`) VALUES
 INSERT INTO register (`name`, `address`, `phone number`, `register code`) VALUES ('Google', 'Paberi 11', '6084385', '00009');
 INSERT INTO register (`name`, `address`, `phone number`, `register code`) VALUES ('Asus', 'Kooli 19', '56617819', '00010');
 
+
+INSERT INTO register_user (`email`, `password`) VALUES ('ruslan@jegorov.com', 'ruslanjegorov');
+INSERT INTO register_user (`email`, `password`) VALUES ('viktor@zubets.com', 'viktorzubets');
+INSERT INTO register_user (`email`, `password`) VALUES ('maxim@kulberg.com', 'maximkulberg');
+
 SELECT * FROM register;
-+----+-----------+-----------------+--------------+---------------+
-| id | name      | address         | phone number | register code |
-+----+-----------+-----------------+--------------+---------------+
-|  1 | Omniva    | Punane 13       |     53497782 |             1 |
-|  2 | Konsum    | Kooli 2         |     53489782 |             2 |
-|  3 | Nordea    | Aia 19          |     52496183 |             3 |
-|  4 | LG        | Narva mnt 14    |     56618839 |             4 |
-|  5 | Milka     | Sinine 16       |     56262428 |             5 |
-|  6 | Lays      | Kose mnt 29     |     53497328 |             6 |
-|  7 | Coca-Cola | Paldiski mnt 17 |      6084965 |             7 |
-|  8 | Nokia     | Tondi 1         |      6084345 |             8 |
-|  9 | Google    | Paberi 11       |      6084385 |             9 |
-| 10 | Asus      | Kooli 19        |     56617819 |            10 |
-+----+-----------+-----------------+--------------+---------------+
++-------------+-----------+-----------------+--------------+---------------+
+| register_id | name      | address         | phone number | register code |
++-------------+-----------+-----------------+--------------+---------------+
+|           1 | Omniva    | Punane 13       |     53497782 |             1 |
+|           2 | Konsum    | Kooli 2         |     53489782 |             2 |
+|           3 | Nordea    | Aia 19          |     52496183 |             3 |
+|           4 | LG        | Narva mnt 14    |     56618839 |             4 |
+|           5 | Milka     | Sinine 16       |     56262428 |             5 |
+|           6 | Lays      | Kose mnt 29     |     53497328 |             6 |
+|           7 | Coca-Cola | Paldiski mnt 17 |      6084965 |             7 |
+|           8 | Nokia     | Tondi 1         |      6084345 |             8 |
+|           9 | Google    | Paberi 11       |      6084385 |             9 |
+|          10 | Asus      | Kooli 19        |     56617819 |            10 |
++-------------+-----------+-----------------+--------------+---------------+
 10 rows in set (0.00 sec)
 
+
+
+
+SELECT * FROM register_user;
++---------+--------------------+---------------+---------------------+
+| user_id | email              | password      | created             |
++---------+--------------------+---------------+---------------------+
+|       1 | ruslan@jegorov.com | ruslanjegorov | 2016-01-12 12:19:15 |
+|       2 | viktor@zubets.com  | viktorzubets  | 2016-01-12 12:19:15 |
+|       3 | maxim@kulberg.com  | maximkulberg  | 2016-01-12 12:19:16 |
++---------+--------------------+---------------+---------------------+
+3 rows in set (0.00 sec)
