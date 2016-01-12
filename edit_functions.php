@@ -7,7 +7,9 @@
 		
 		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
 		
-		$stmt = $mysqli->prepare("SELECT name, address, phone_number, register_code FROM register WHERE id=? AND deleted IS NULL");
+		$stmt = $mysqli->prepare("SELECT name, address, phone_number, register_code FROM register WHERE register_id=? AND deleted IS NULL");
+		
+		echo $mysqli->error;
 		$stmt->bind_param("i",$edit_id);
 		$stmt->bind_result($name, $address, $phone_number, $register_code);
 		$stmt->execute();

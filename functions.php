@@ -5,10 +5,6 @@
 	
 	session_start();
 	
-		
-	
-	
-	
 	function loginUser($login_email, $login_password){
 		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
 		
@@ -38,8 +34,8 @@
 		
 		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
 		
-		$stmt = $mysqli->prepare("INSERT INTO register (register_id, name, address, phone_number, register_code) VALUES (?,?,?,?,?)");
-		$stmt->bind_param("issss", $_SESSION["logged_in_user_id"], $name, $address, $phone_number, $register_code);
+		$stmt = $mysqli->prepare("INSERT INTO register ( name, address, phone_number, register_code) VALUES (?,?,?,?)");
+		$stmt->bind_param("ssss", $name, $address, $phone_number, $register_code);
 		
 		//sonum
 		$message = "";
@@ -77,7 +73,7 @@
 		}
 		
 		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("SELECT register_id, name, address, phone_number, register_code from register WHERE deleted IS NULL AND (name LIKE ? OR address LIKE ? OR phone_numer LIKE ? OR register_code LIKE ?) ");
+		$stmt = $mysqli->prepare("SELECT register_id, name, address, phone_number, register_code from register WHERE deleted IS NULL AND (name LIKE ? OR address LIKE ? OR phone_number LIKE ? OR register_code LIKE ?) ");
 		
 		//echo $stmt->error;
 		echo $mysqli->error;
@@ -121,7 +117,7 @@
 	function deleteData($register_id){
 		
 		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("UPDATE register SET deleted=NOW() WHERE id=?");
+		$stmt = $mysqli->prepare("UPDATE register SET deleted=NOW() WHERE register_id=?");
 		
 		echo $mysqli->error;
 		

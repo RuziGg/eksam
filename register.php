@@ -37,7 +37,7 @@ echo "</ul>";
 	//salvestan andmebaasi uuendused
 	if(isset($_POST["save"])){
 		var_dump($_POST);
-		updateData($_POST["register_id"], $_POST["name"], $_POST["address"], $_POST["phone number"], $_POST["register code"]);
+		updateData($_POST["register_id"], $_POST["name"], $_POST["address"], $_POST["phone_number"], $_POST["register_code"]);
 	}
 	
 		$keywod = "";
@@ -70,7 +70,6 @@ echo "</ul>";
 <table border=1 >
 	<tr>
 		<th>id</th>
-		<th>registri id</th>
 		<th>nimi</th>
 		<th>aadress</th>
 		<th>tel.number</th>
@@ -87,11 +86,11 @@ echo "</ul>";
 			//echo $array_of_notes[$i]->id;
 			
 			//kasutaja tahab muuta seda rida
-			if(isset($_GET["edit"]) && $array_of_data[$i]->id == $_GET["edit"]){
+			if(isset($_GET["edit"]) && $array_of_data[$i]->register_id == $_GET["edit"]){
 				
 				echo "<tr>";
 				echo "<form action='register.php' method='post'>";
-				echo "<input type='hidden' name='id' value='".$array_of_data[$i]->register_id."'>";
+				echo "<input type='hidden' name='register_id' value='".$array_of_data[$i]->register_id."'>";
 				echo "<td>".$array_of_data[$i]->register_id."</td>";
 				echo "<td>".$array_of_data[$i]->register_id."</td>";
 				echo "<td><input name='name' value='".$array_of_data[$i]->name."'></td>";
@@ -107,7 +106,6 @@ echo "</ul>";
 				
 				echo "<tr>";
 				echo "<td>".$array_of_data[$i]->register_id."</td>";
-				echo "<td>".$array_of_data[$i]->user_id."</td>";
 				echo "<td>".$array_of_data[$i]->name."</td>";
 				echo "<td>".$array_of_data[$i]->address."</td>";
 				echo "<td>".$array_of_data[$i]->phone_number."</td>";
@@ -115,9 +113,9 @@ echo "</ul>";
 				
 				
 				
-				echo "<td><a href='?delete=".$array_of_data[$i]->id."'>X</a></td>";
-				echo "<td><a href='?edit=".$array_of_data[$i]->id."'>edit</a></td>";
-				echo "<td><a href='edit.php?edit_id=".$array_of_data[$i]->id."'>edit.php</a></td>";
+				echo "<td><a href='?delete=".$array_of_data[$i]->register_id."'>X</a></td>";
+				echo "<td><a href='?edit=".$array_of_data[$i]->register_id."'>edit</a></td>";
+				echo "<td><a href='edit.php?edit_id=".$array_of_data[$i]->register_id."'>edit.php</a></td>";
 				
 				
 				echo "</tr>";

@@ -103,8 +103,8 @@ echo "</ul>";
 
 
 <h2>Lisa andmed</h2>
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" >
-	<label for="name" >Nimi</label><br>
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+	<label for="name">Nimi</label><br>
 	<input id="name" name="name" type="text" value="<?php echo $name; ?>"> <?php echo $name_error; ?><br><br>
 	<label for="address">Aadress</label><br>
 	<input id="address" name="address" type="text" value="<?php echo $address; ?>"> <?php echo $address_error; ?><br><br>

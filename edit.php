@@ -36,10 +36,10 @@
 
 ?>
 
-<h2>Muuda markuse</h2>
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" >
-	<input type="hidden" name="id" value="<?$_GET["edit_id"];?>">
-	<label for="name" >Nimi</label><br>
+<h2>Muuda andmed</h2>
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+	<input type="hidden" name="id" value="<?=$_GET["edit_id"];?>">
+	<label for="name">Nimi</label><br>
 	<input id="name" name="name" type="text" value="<?=$Data1->name;?>"><br><br>
 	<label for="address">Aadress</label><br>
 	<input id="address" name="address" type="text" value="<?=$Data1->address;?>"><br><br>
