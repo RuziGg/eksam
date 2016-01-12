@@ -14,6 +14,14 @@ password VARCHAR(128),
 created TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
 UNIQUE(email) );
 
+CREATE TABLE memory (
+  `memory_id` INT NOT NULL AUTO_INCREMENT,
+  `memory_before` VARCHAR(45),
+  `machine` VARCHAR(45),
+  `data_changes` VARCHAR(45),
+  PRIMARY KEY (`memory_id`))
+ENGINE = InnoDB;
+
 
 INSERT INTO register (`name`, `address`, `phone_number`, `register_code`) VALUES ('Omniva', 'Punane 13', '53497782', '00001');
 INSERT INTO register (`name`, `address`, `phone_number`, `register_code`) VALUES ('Konsum', 'Kooli 2', '53489782', '00002');
