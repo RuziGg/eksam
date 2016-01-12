@@ -77,13 +77,13 @@
 		}
 		
 		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("SELECT register_id, user_id, name, address, 'phone number', 'register code' from register WHERE deleted IS NULL AND (name LIKE ? OR address LIKE ? OR 'phone numer' LIKE ? OR 'register code' LIKE ?) ");
+		$stmt = $mysqli->prepare("SELECT register_id, name, address, 'phone number', 'register code' from register WHERE deleted IS NULL AND (name LIKE ? OR address LIKE ? OR 'phone numer' LIKE ? OR 'register code' LIKE ?) ");
 		
 		//echo $stmt->error;
 		echo $mysqli->error;
 		
 		$stmt->bind_param("ss", $search, $search);
-		$stmt->bind_result($register_id, $user_id_from_database, $name, $address, $phone_number, $register_code);
+		$stmt->bind_result($register_id, $name, $address, $phone_number, $register_code);
 		$stmt->execute();
 		
 		// tekitan tuhja massiivi, kus edaspidi hoian objekte
@@ -97,7 +97,6 @@
 			$Data1 = new StdClass();
 			$Data1->register_id = $register_id;
 			$Data1->name = $name;
-			$Data1->user_id = $user_id_from_database;
 			$Data1->address = $address;
 			$Data1->phone_number = $phone_number;
 			$Data1->register_code = $register_code;
